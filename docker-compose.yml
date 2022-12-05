@@ -1,0 +1,35 @@
+services:
+  back-end:
+    build:
+#      context: back-end
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      DB_URL: jdbc:mysql://mysql-container:3306/my_app
+      DB_USERNAME: root
+      DB_PASSWORD: admin
+    depends_on:
+      - mysql-container
+  front-end:
+    build:
+#      context: front-end
+      dockerfile: Dockerfile
+    ports:
+      - 80:3000
+    depends_on:
+      - back-end
+  mysql-container:
+    image:
+      mysql:latest
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: my_app
+      MYSQL_ROOT_PASSWORD: admin
+#      MYSQL_USER: root
+      MYSQL_PASSWORD: admin
+
+volumes:
+  dbdata:
+
