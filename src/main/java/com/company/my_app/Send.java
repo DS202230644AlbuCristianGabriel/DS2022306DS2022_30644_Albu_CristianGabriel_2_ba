@@ -20,8 +20,8 @@ public class Send {
         JSONObject queue = (JSONObject) q.get("consumption");
         HttpEntity<String> request = new HttpEntity<>(queue.toString(), headers);
         RegistredSmartEnergyDTO registredSmartEnergyDTO = new RegistredSmartEnergyDTO();
-        registredSmartEnergyDTO.setDate(Timestamp.valueOf((String) queue.get("timestamp")));
-        registredSmartEnergyDTO.setEnergyConsumed((Double) queue.get("measurement_value"));
+        registredSmartEnergyDTO.setTimestamp(Timestamp.valueOf((String) queue.get("timestamp")));
+        registredSmartEnergyDTO.setMeasurement_value((Double) queue.get("measurement_value"));
         registredSmartEnergyDTO.setDeviceRegistredSmartEnergy((Integer) queue.get("device_id"));
         restTemplate.postForObject(createPersonUrl, registredSmartEnergyDTO, String.class);
     }

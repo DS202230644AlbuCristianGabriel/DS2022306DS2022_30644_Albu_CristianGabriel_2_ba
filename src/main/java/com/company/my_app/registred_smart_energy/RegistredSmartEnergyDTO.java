@@ -10,6 +10,21 @@ public class RegistredSmartEnergyDTO {
     private Double measurement_value;
     private Integer deviceRegistredSmartEnergy;
 
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public Double getMeasurement_value() {
+        return measurement_value;
+    }
+
+    public void setMeasurement_value(Double measurement_value) {
+        this.measurement_value = measurement_value;
+    }
 //    public RegistredSmartEnergyDTO(HttpEntity<String> request) {
 //        this.deviceRegistredSmartEnergy = (Long) new JSONObject(request.getBody()).get("device_id");
 //        this.measurement_value = (Long) new JSONObject(request.getBody()).get("measurement_value");
@@ -22,22 +37,6 @@ public class RegistredSmartEnergyDTO {
 
     public void setId(final String id) {
         this.id = id;
-    }
-
-    public Timestamp getDate() {
-        return timestamp;
-    }
-
-    public void setDate(final Timestamp date) {
-        this.timestamp = date;
-    }
-
-    public Double getEnergyConsumed() {
-        return measurement_value;
-    }
-
-    public void setEnergyConsumed(final Double energyConsumed) {
-        this.measurement_value = energyConsumed;
     }
 
     public Integer getDeviceRegistredSmartEnergy() {
