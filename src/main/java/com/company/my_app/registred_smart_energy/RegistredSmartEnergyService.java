@@ -59,16 +59,16 @@ public class RegistredSmartEnergyService {
     private RegistredSmartEnergyDTO mapToDTO(final RegistredSmartEnergy registredSmartEnergy,
             final RegistredSmartEnergyDTO registredSmartEnergyDTO) {
         registredSmartEnergyDTO.setId(registredSmartEnergy.getId());
-        registredSmartEnergyDTO.setDate(registredSmartEnergy.getDate());
-        registredSmartEnergyDTO.setEnergyConsumed(registredSmartEnergy.getEnergyConsumed());
+        registredSmartEnergyDTO.setTimestamp(registredSmartEnergy.getDate());
+        registredSmartEnergyDTO.setMeasurement_value(registredSmartEnergy.getEnergyConsumed());
         registredSmartEnergyDTO.setDeviceRegistredSmartEnergy(Math.toIntExact(registredSmartEnergy.getDeviceRegistredSmartEnergy() == null ? null : registredSmartEnergy.getDeviceRegistredSmartEnergy().getId()));
         return registredSmartEnergyDTO;
     }
 
     private RegistredSmartEnergy mapToEntity(final RegistredSmartEnergyDTO registredSmartEnergyDTO,
             final RegistredSmartEnergy registredSmartEnergy) {
-        registredSmartEnergy.setDate(registredSmartEnergyDTO.getDate());
-        registredSmartEnergy.setEnergyConsumed(registredSmartEnergyDTO.getEnergyConsumed());
+        registredSmartEnergy.setDate(registredSmartEnergyDTO.getTimestamp());
+        registredSmartEnergy.setEnergyConsumed(registredSmartEnergyDTO.getMeasurement_value());
         final SmartDevice deviceRegistredSmartEnergy = registredSmartEnergyDTO.getDeviceRegistredSmartEnergy() == null ? null : smartDeviceRepository.findById(Long.valueOf(registredSmartEnergyDTO.getDeviceRegistredSmartEnergy().toString()))
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "deviceRegistredSmartEnergy not found"));
         registredSmartEnergy.setDeviceRegistredSmartEnergy(deviceRegistredSmartEnergy);
