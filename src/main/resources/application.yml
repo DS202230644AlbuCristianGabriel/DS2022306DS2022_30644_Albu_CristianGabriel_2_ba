@@ -13,6 +13,7 @@ spring:
     url: jdbc:mysql://azuredbmysqlsd.mysql.database.azure.com:3306/my-app?useSSL=true&requireSSL=FALSE
     username: ${JDBC_DATABASE_USERNAME:adminazure@azuredbmysqlsd}
     password: ${JDBC_DATABASE_PASSWORD:#Tusasimo12}
+    
     dbcp2:
       max-wait-millis: 30000
       validation-query: SELECT 1
