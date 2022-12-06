@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 
 public class Send {
     void send(String in) throws FileNotFoundException, InterruptedException {
-        String createPersonUrl = "http://localhost:8080/api/registredSmartEnergy";
+        String createPersonUrl = "https://backendassignment2.azurewebsites.net/api/registredSmartEnergy";
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
