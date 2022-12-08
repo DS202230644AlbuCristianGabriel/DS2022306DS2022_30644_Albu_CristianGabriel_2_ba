@@ -14,13 +14,13 @@ public class MyAppApplication {
     public static void main(final String[] args) {
         SpringApplication.run(MyAppApplication.class, args);
     }
-    @Bean
-    public WebMvcConfigurer corsConfigurer() {
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/greeting-javaconfig").allowedOrigins("http://localhost:8080");
-            }
-        };
-    }
+//    @Bean
+//    public WebMvcConfigurer corsConfigurer() {
+//        return new WebMvcConfigurer() {
+//            @Override
+//            public void addCorsMappings(CorsRegistry registry) {
+//                registry.addMapping("/greeting-javaconfig").allowedOrigins("http://localhost:8080");
+//            }
+//        };
+//    }
 }
