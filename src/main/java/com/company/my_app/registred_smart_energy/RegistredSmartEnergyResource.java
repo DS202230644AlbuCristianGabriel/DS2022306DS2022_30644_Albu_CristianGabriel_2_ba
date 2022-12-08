@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "https://jolly-tree-09eef8403.2.azurestaticapps.net")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/api/registredSmartEnergy", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
