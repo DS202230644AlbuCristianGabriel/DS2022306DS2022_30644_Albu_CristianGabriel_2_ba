@@ -1,5 +1,6 @@
 package com.company.my_app;
 
+import com.company.my_app.smart_device.SmartDeviceDTO;
 import com.company.my_app.smart_device.SmartDeviceService;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
@@ -22,11 +23,12 @@ public class Litener {
         JSONObject q = new JSONObject(in);
         JSONObject queue = (JSONObject) q.get("consumption");
         int deviceId = (Integer) queue.get("device_id");
+        SmartDeviceDTO smartDevice = smartDeviceService.get((long) deviceId);
         Long value = smartDeviceService.get((long) deviceId).getMaxHourlyEnergyConsumption();
         sumOfConsumptionsPerHour += (Double) queue.get("measurement_value");
         numberOfConsumptions++;
         if(sumOfConsumptionsPerHour > value && numberOfConsumptions == 6) {
-            applicationEventPublisher.publishEvent((Double) queue.get("measurement_value"));
+            applicationEventPublisher.publishEvent(smartDevice.getId());
             numberOfConsumptions=0;
             sumOfConsumptionsPerHour=0;
         }

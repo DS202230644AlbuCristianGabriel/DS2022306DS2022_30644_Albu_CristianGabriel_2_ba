@@ -60,8 +60,8 @@ public class RegistredSmartEnergyResource {
     public ResponseEntity<List<RegistredSmartEnergyDTO>> getSmartDevices(@PathVariable final Long id, @PathVariable final String date) {
         return ResponseEntity.ok(registredSmartEnergyService.getAllForDevice(id, date));
     }
-    @EventListener(Double.class)
-    public void handleEvent(Double event) {
+    @EventListener(Long.class)
+    public void handleEvent(Long event) {
         System.out.println("kk" + event);
         messageSender.convertAndSend("/topic/consumption", event);
     }
