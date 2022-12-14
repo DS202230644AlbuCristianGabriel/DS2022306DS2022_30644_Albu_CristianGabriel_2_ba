@@ -28,7 +28,7 @@ public class Litener {
         sumOfConsumptionsPerHour += (Double) queue.get("measurement_value");
         numberOfConsumptions++;
         if(sumOfConsumptionsPerHour > value && numberOfConsumptions == 6) {
-            applicationEventPublisher.publishEvent(smartDevice.getId());
+            applicationEventPublisher.publishEvent(smartDevice.getUserDevices());
             numberOfConsumptions=0;
             sumOfConsumptionsPerHour=0;
         }
